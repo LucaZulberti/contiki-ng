@@ -29,26 +29,21 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- * \addtogroup cc2538dk
+ * \addtogroup wi502
  * @{
  *
- * \defgroup cc2538-smartrf SmartRF06EB Peripherals
+ * \defgroup wi502-peripherals WI502 Peripherals
  *
- * Defines related to the SmartRF06EB
+ * Defines related to the WI502 on board peripherlas
  *
  * This file provides connectivity information on LEDs, Buttons, UART and
- * other SmartRF peripherals
+ * other WI502 peripherals
  *
- * Notably, PC0 is used to drive LED1 as well as the USB D+ pullup. Therefore
- * when USB is enabled, LED1 can not be driven by firmware.
- *
- * This file can be used as the basis to configure other platforms using the
- * cc2538 SoC.
  * @{
  *
  * \file
- * Header file with definitions related to the I/O connections on the TI
- * SmartRF06EB
+ * Header file with definitions related to the I/O connections on the HCE
+ * WI502
  *
  * \note   Do not include this file directly. It gets included by contiki-conf
  *         after all relevant directives have been set.
@@ -59,9 +54,9 @@
 #include "dev/gpio.h"
 #include "dev/nvic.h"
 /*---------------------------------------------------------------------------*/
-/** \name SmartRF LED configuration
+/** \name WI502 LED configuration
  *
- * LEDs on the SmartRF06 (EB and BB) are connected as follows:
+ * LEDs on the WI502 (EB and BB) are connected as follows:
  * - LED1 (Red)    -> PC0
  * - LED2 (Yellow) -> PC1
  * - LED3 (Green)  -> PC2
@@ -126,7 +121,7 @@
 #define UART1_RTS_PIN           3
 /** @} */
 /*---------------------------------------------------------------------------*/
-/** \name SmartRF Button configuration
+/** \name WI502 Button configuration
  *
  * Buttons on the SmartRF06 are connected as follows:
  * - BUTTON_SELECT -> PA3
@@ -224,7 +219,7 @@
  * \name Device string used on startup
  * @{
  */
-#define BOARD_STRING "TI SmartRF06 + cc2538EM"
+#define BOARD_STRING "HCE WI502 IoT Module, cc2538-powered board"
 /** @} */
 
 #endif /* BOARD_H_ */

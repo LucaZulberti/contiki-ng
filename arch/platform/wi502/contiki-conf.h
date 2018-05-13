@@ -30,11 +30,11 @@
  */
 /*---------------------------------------------------------------------------*/
 /**
- * \addtogroup cc2538dk
+ * \addtogroup wi502
  * @{
  *
  * \file
- *  Configuration for the cc2538dk platform
+ *  Configuration for the wi502 platform
  */
 #ifndef CONTIKI_CONF_H_
 #define CONTIKI_CONF_H_

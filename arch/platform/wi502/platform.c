@@ -32,14 +32,14 @@
  * \addtogroup cc2538-platforms
  * @{
  *
- * \defgroup cc2538dk The cc2538 Development Kit platform
+ * \defgroup wi502 The HCE IoT Module, WI502
  *
- * The cc2538DK is a platform by Texas Instruments, based on the
+ * The WI502 is a platform by HCE in Italy, based on the
  * cc2538 SoC with an ARM Cortex-M3 core.
  * @{
  *
  * \file
- *   Main module for the cc2538dk platform
+ *   Main module for the WI502 platform
  */
 /*---------------------------------------------------------------------------*/
 #include "contiki.h"
@@ -71,7 +71,7 @@
 /*---------------------------------------------------------------------------*/
 /* Log configuration */
 #include "sys/log.h"
-#define LOG_MODULE "CC2538DK"
+#define LOG_MODULE "WI502"
 #define LOG_LEVEL LOG_LEVEL_MAIN
 /*---------------------------------------------------------------------------*/
 static void

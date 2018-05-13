@@ -56,40 +56,17 @@
 /*---------------------------------------------------------------------------*/
 /** \name WI502 LED configuration
  *
- * LEDs on the WI502 (EB and BB) are connected as follows:
- * - LED1 (Red)    -> PC0
- * - LED2 (Yellow) -> PC1
- * - LED3 (Green)  -> PC2
- * - LED4 (Orange) -> PC3
+ * LEDs on the WI502 are connected as follows:
+ * - LED -> PIN
  *
- * LED1 shares the same pin with the USB pullup
  * @{
  */
-/*---------------------------------------------------------------------------*/
-#define LEDS_CONF_YELLOW           1
-#define LEDS_CONF_GREEN            2
-#define LEDS_CONF_ORANGE           4
-
-#define LEDS_ARCH_L1_PORT GPIO_C_NUM
-#define LEDS_ARCH_L1_PIN           1
-#define LEDS_ARCH_L2_PORT GPIO_C_NUM
-#define LEDS_ARCH_L2_PIN           2
-#define LEDS_ARCH_L3_PORT GPIO_C_NUM
-#define LEDS_ARCH_L3_PIN           3
-
-#if USB_SERIAL_CONF_ENABLE
-#define LEDS_CONF_COUNT            3
-#else
-#define LEDS_ARCH_L4_PORT GPIO_C_NUM
-#define LEDS_ARCH_L4_PIN           0
-#define LEDS_CONF_RED              8
-#define LEDS_CONF_COUNT            4
-#endif
 /** @} */
 /*---------------------------------------------------------------------------*/
 /** \name USB configuration
  *
  * The USB pullup is driven by PC0 and is shared with LED1
+ * @{
  */
 #define USB_PULLUP_PORT         GPIO_C_NUM
 #define USB_PULLUP_PIN          0
@@ -97,7 +74,7 @@
 /*---------------------------------------------------------------------------*/
 /** \name UART configuration
  *
- * On the SmartRF06EB, the UART (XDS back channel) is connected to the
+ * On the WI502, the UART (XDS back channel) is connected to the
  * following ports/pins
  * - RX:  PA0
  * - TX:  PA1
@@ -123,42 +100,18 @@
 /*---------------------------------------------------------------------------*/
 /** \name WI502 Button configuration
  *
- * Buttons on the SmartRF06 are connected as follows:
- * - BUTTON_SELECT -> PA3
- * - BUTTON_LEFT -> PC4
- * - BUTTON_RIGHT -> PC5
- * - BUTTON_UP -> PC6
- * - BUTTON_DOWN -> PC7
+ * Buttons on the WI502 are connected as follows:
+ * - BUTTON_USER -> PA3
  * @{
  */
 /** BUTTON_SELECT -> PA3 */
 #define BUTTON_SELECT_PORT      GPIO_A_NUM
-#define BUTTON_SELECT_PIN       3
+#define BUTTON_SELECT_PIN       7
 #define BUTTON_SELECT_VECTOR    GPIO_A_IRQn
 
-/** BUTTON_LEFT -> PC4 */
-#define BUTTON_LEFT_PORT        GPIO_C_NUM
-#define BUTTON_LEFT_PIN         4
-#define BUTTON_LEFT_VECTOR      GPIO_C_IRQn
-
-/** BUTTON_RIGHT -> PC5 */
-#define BUTTON_RIGHT_PORT       GPIO_C_NUM
-#define BUTTON_RIGHT_PIN        5
-#define BUTTON_RIGHT_VECTOR     GPIO_C_IRQn
-
-/** BUTTON_UP -> PC6 */
-#define BUTTON_UP_PORT          GPIO_C_NUM
-#define BUTTON_UP_PIN           6
-#define BUTTON_UP_VECTOR        GPIO_C_IRQn
-
-/** BUTTON_DOWN -> PC7 */
-#define BUTTON_DOWN_PORT        GPIO_C_NUM
-#define BUTTON_DOWN_PIN         7
-#define BUTTON_DOWN_VECTOR      GPIO_C_IRQn
-
-/* Notify various examples that we have Buttons */
-#define PLATFORM_HAS_BUTTON     1
-#define PLATFORM_SUPPORTS_BUTTON_HAL 1
+/* Notify various examples that we have Buttons - Temporarily disabled */
+#define PLATFORM_HAS_BUTTON     0
+#define PLATFORM_SUPPORTS_BUTTON_HAL 0
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**
@@ -170,9 +123,6 @@
  * ADC inputs can only be on port A.
  * @{
  */
-#define ADC_ALS_PWR_PORT        GPIO_A_NUM /**< ALS power GPIO control port */
-#define ADC_ALS_PWR_PIN         7 /**< ALS power GPIO control pin */
-#define ADC_ALS_OUT_PIN         6 /**< ALS output ADC input pin on port A */
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**

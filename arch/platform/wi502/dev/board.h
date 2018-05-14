@@ -54,13 +54,14 @@
 #include "dev/gpio.h"
 #include "dev/nvic.h"
 /*---------------------------------------------------------------------------*/
-/** \name WI502 LED configuration
+/** \name LED configuration
  *
- * LEDs on the WI502 are connected as follows:
- * - LED -> PIN
- *
+ * There is no LEDs on WI502 board
  * @{
  */
+
+/* Notify various examples that we don't have LEDs */
+#define PLATFORM_HAS_LEDS       0
 /** @} */
 /*---------------------------------------------------------------------------*/
 /** \name USB configuration
@@ -90,6 +91,12 @@
 
 #define UART0_TX_PORT           GPIO_A_NUM
 #define UART0_TX_PIN            1
+
+#define UART1_RX_PORT           GPIO_A_NUM
+#define UART1_RX_PIN            2
+
+#define UART1_TX_PORT           GPIO_A_NUM
+#define UART1_TX_PIN            3
 
 #define UART1_CTS_PORT          GPIO_B_NUM
 #define UART1_CTS_PIN           0
@@ -123,6 +130,9 @@
  * ADC inputs can only be on port A.
  * @{
  */
+#define ADC_BAT_PORT            GPIO_A_NUM /**< ALS power GPIO control port */
+#define ADC_BAT_PIN             6 /**< battery voltage ANA pin */
+
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**
@@ -133,21 +143,21 @@
  * port / pin macros.
  * @{
  */
-#define SPI0_IN_USE             0
+#define SPI0_IN_USE             1
 #define SPI1_IN_USE             0
 #if SPI0_IN_USE
 /** Clock port SPI0 */
-#define SPI0_CLK_PORT           GPIO_A_NUM
+#define SPI0_CLK_PORT           GPIO_D_NUM
 /** Clock pin SPI0 */
-#define SPI0_CLK_PIN            2
+#define SPI0_CLK_PIN            4
 /** TX port SPI0 (master mode: MOSI) */
-#define SPI0_TX_PORT            GPIO_A_NUM
+#define SPI0_TX_PORT            GPIO_D_NUM
 /** TX pin SPI0 */
-#define SPI0_TX_PIN             4
+#define SPI0_TX_PIN             2
 /** RX port SPI0 (master mode: MISO */
-#define SPI0_RX_PORT            GPIO_A_NUM
+#define SPI0_RX_PORT            GPIO_D_NUM
 /** RX pin SPI0 */
-#define SPI0_RX_PIN             5
+#define SPI0_RX_PIN             3
 #endif  /* #if SPI0_IN_USE */
 #if SPI1_IN_USE
 /** Clock port SPI1 */
@@ -163,6 +173,25 @@
 /** RX pin SPI1 */
 #define SPI1_RX_PIN             5
 #endif  /* #if SPI1_IN_USE */
+/** @} */
+/*---------------------------------------------------------------------------*/
+/**
+ * \name I2C configuration
+ *
+ * These values configure which CC2538 pins to use for the I2C lines.
+ * @{
+ */
+#define I2C_IN_USE             1
+#if I2C_IN_USE
+/** Data port I2C */
+#define I2C_SDA_PORT           GPIO_B_NUM
+/** Data pin I2C */
+#define I2C_SDA_PIN            1
+/** Clock port I2C */
+#define I2C_SCL_PORT           GPIO_B_NUM
+/** Clock pin I2C */
+#define I2C_SCL_PIN            2
+#endif /* #if I2C_IN_USE */
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**

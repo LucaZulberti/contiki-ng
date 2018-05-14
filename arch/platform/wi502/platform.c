@@ -45,6 +45,7 @@
 #include "contiki.h"
 #include "dev/adc.h"
 #include "dev/leds.h"
+#include "dev/i2c.h"
 #include "dev/uart.h"
 #include "dev/serial-line.h"
 #include "dev/slip.h"
@@ -144,6 +145,8 @@ platform_init_stage_two()
   usb_serial_init();
   usb_serial_set_input(serial_line_input_byte);
 #endif
+
+  i2c_init(I2C_SDA_PORT, I2C_SDA_PIN, I2C_SCL_PORT, I2C_SCL_PIN, I2C_SCL_NORMAL_BUS_SPEED);
 
   serial_line_init();
 

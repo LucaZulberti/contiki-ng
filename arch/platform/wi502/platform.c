@@ -74,6 +74,7 @@
 #define LOG_MODULE "WI502"
 #define LOG_LEVEL LOG_LEVEL_MAIN
 /*---------------------------------------------------------------------------*/
+/*
 static void
 fade(leds_mask_t l)
 {
@@ -92,6 +93,7 @@ fade(leds_mask_t l)
     }
   }
 }
+*/
 /*---------------------------------------------------------------------------*/
 static void
 set_rf_params(void)
@@ -115,8 +117,8 @@ platform_init_stage_one(void)
 {
   soc_init();
 
-  leds_init();
-  fade(LEDS_YELLOW);
+//  leds_init();
+//  fade(LEDS_YELLOW);
 }
 /*---------------------------------------------------------------------------*/
 void
@@ -158,11 +160,11 @@ platform_init_stage_two()
   /* Populate linkaddr_node_addr */
   ieee_addr_cpy_to(linkaddr_node_addr.u8, LINKADDR_SIZE);
 
-  button_hal_init();
+//  button_hal_init();
 
   INTERRUPTS_ENABLE();
 
-  fade(LEDS_GREEN);
+//  fade(LEDS_GREEN);
 }
 /*---------------------------------------------------------------------------*/
 void
@@ -174,11 +176,11 @@ platform_init_stage_three()
 
   soc_print_info();
 
-  adc_init();
+//  adc_init();
 
-  process_start(&sensors_process, NULL);
+//  process_start(&sensors_process, NULL);
 
-  fade(LEDS_ORANGE);
+//  fade(LEDS_ORANGE);
 }
 /*---------------------------------------------------------------------------*/
 void
